@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import Slidebar from "../components/Slidebar"
 import Resumen from "../components/Resumen"
 import useQuiosco from "../hooks/useQuiosco"
+import ModalProducto from "../components/ModalProducto";
 
 const customStyles = {
   content: {
@@ -20,7 +21,7 @@ Modal.setAppElement('#root')
 export default function layout() {
 
   const {modal, handleClickModal} = useQuiosco();
-  console.log(modal);
+  // console.log(modal);
 
   
 
@@ -36,14 +37,9 @@ export default function layout() {
           <Resumen />
       </div>
 
-      {modal && (
-        <Modal isOpen={modal} style={customStyles}>
-          <p>Desde modal</p>
-          <button
-            onClick={handleClickModal}
-          >Cerrar</button>
-        </Modal>
-      )}
+      <Modal isOpen={modal} style={customStyles}>
+        <ModalProducto/>
+      </Modal>
     </>
   )
 }
